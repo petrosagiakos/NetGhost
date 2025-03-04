@@ -132,9 +132,11 @@ for mac in handshakes:
     if(len(handshakes[mac])==4):
         mac_attacked=mac
         break
-print(handshakes[mac_attacked])
+if mac_attacked!="":
+    #print(handshakes[mac_attacked])
 
-#stores the handshake
-wrpcap("handshake.pcap", handshakes[mac_attacked])
-
+    #stores the handshake
+    wrpcap("handshake.pcap", handshakes[mac_attacked])
+else:
+    print("Could not capture handshake. try again")
 disable_monitor_mode(ifacemon)
